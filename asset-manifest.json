@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/Movie-Web-Service/static/js/main.db780b90.js",
-    "index.html": "/Movie-Web-Service/index.html",
-    "main.db780b90.js.map": "/Movie-Web-Service/static/js/main.db780b90.js.map"
+    "main.js": "/static/js/main.db780b90.js",
+    "index.html": "/index.html",
+    "main.db780b90.js.map": "/static/js/main.db780b90.js.map"
   },
   "entrypoints": [
     "static/js/main.db780b90.js"
