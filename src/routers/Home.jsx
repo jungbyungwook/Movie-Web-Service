@@ -1,38 +1,60 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
 import Header from "../components/Header";
+import MovieContainer from "../containers/MovieContainer";
+
 import styled from "styled-components";
+import { romanceTranslate } from "../atom";
+import {
+    useRecoilState,
+    useRecoilValue,
+    useSetRecoilState,
+    useResetRecoilState,
+} from "recoil";
 
 function Home() {
-    const [loading, setLoading] = useState(true);
-    const [movies, setMovies] = useState();
+    // const [loading, setLoading] = useState(true);
+    // const [movies, setMovies] = useState();
+    // const setLeftBtn = useSetRecoilState(leftBtn);
 
-    const getMovies = async () => {
-        const json = await // await fetch(
-        //     `https://yts.mx/api/v2/list_movies.json?minimum_rating=10&sort_by=year`
-        // )
-        (
-            await fetch(
-                `https://yts.mx/api/v2/list_movies.json?limit=50&minimum_rating=9?&genre=romance&sort_by=year`
-            )
-        ).json();
+    // console.log(useRecoilValue(romanceTranslate));
 
-        setMovies(json.data.movies);
-        setLoading(false);
-    };
+    // const getMovies = async () => {
+    //     const json = await // await fetch(
+    //     //     `https://yts.mx/api/v2/list_movies.json?minimum_rating=10&sort_by=year`
+    //     // )
+    //     (
+    //         await fetch(
+    //             `https://yts.mx/api/v2/list_movies.json?limit=50&minimum_rating=9?&genre=romance&sort_by=year`
+    //         )
+    //     ).json();
 
-    useEffect(() => {
-        getMovies();
-    }, []);
+    //     setMovies(json.data.movies);
+    //     setLoading(false);
+    // };
 
+    // useEffect(() => {
+    //     getMovies();
+    // }, []);
+
+    // const leftClick = (event) => {
+    //     // event.target.style.transform = "translate(-100vw)";
+    //     setLeftBtn(true);
+    // };
+    // const rightClick = (event) => {
+    //     // setRightBtn(true);
+    // };
     // console.log(movies);
+
+    // console.log(leftBtn);
     return (
         <HomeWrapper>
             <Header />
-            {loading ? (
+            <MovieContainer />
+            {/* {loading ? (
                 <h1>Loading...</h1>
             ) : (
-                <div>
+                <MovieSlider>
                     {movies.map((movie) => (
                         <Movie
                             key={movie.id}
@@ -43,14 +65,19 @@ function Home() {
                             genres={movie.genres}
                         />
                     ))}
-                </div>
+                </MovieSlider>
             )}
+            <button onClick={leftClick}>left</button>
+            <button onCLick={rightClick}>right</button> */}
         </HomeWrapper>
     );
 }
 
 const HomeWrapper = styled.div`
-    padding-top: 80px;
+    /* overflow: hidden;
+    /* padding-top: 80px; */
 `;
+
+// const MovieSlider = styled.div``;
 
 export default Home;
