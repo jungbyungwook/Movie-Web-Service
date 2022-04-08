@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
 import Header from "../components/Header";
 import MovieContainer from "../containers/MovieContainer";
+import MainMovieContainer from "../containers/MainMovieContainer";
 
 import styled from "styled-components";
 import { romanceTranslate } from "../atom";
@@ -50,7 +51,8 @@ function Home() {
     return (
         <HomeWrapper>
             <Header />
-            <MovieContainer />
+            <MainMovieContainer />
+            <MovieContainer title="Romance" />
             {/* {loading ? (
                 <h1>Loading...</h1>
             ) : (

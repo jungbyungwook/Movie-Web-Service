@@ -15,10 +15,10 @@ const HeaderWrapper = styled.div`
     left: 0;
     right: 0;
 
-    height: 70px;
-    font-size: 35px;
+    height: 65px;
+    font-size: 30px;
     color: #ffffff;
     background-color: #000;
     margin-bottom: 10px;
-    padding: 13px;
+    padding: 10px;
 `;

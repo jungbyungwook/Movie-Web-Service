@@ -9,7 +9,7 @@ import {
     useResetRecoilState,
 } from "recoil";
 
-export default function MovieContainer() {
+export default function MovieContainer({ title }) {
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState();
     const setTranslate = useSetRecoilState(romanceTranslate);
@@ -31,14 +31,12 @@ export default function MovieContainer() {
     }, []);
 
     const leftClick = (event) => {
-        // event.target.style.transform = "translate(-100vw)";
-        // setLeftBtn(true);
         if (translateVw < 0) setTranslateVw((current) => current + 100);
     };
     const rightClick = (event) => {
-        // setRightBtn(true);
         if (translateVw > -400) setTranslateVw((current) => current - 100);
     };
+
     useEffect(() => {
         setTranslate(`translate(${translateVw}vw)`);
         // console.log(translateVw);
@@ -46,6 +44,7 @@ export default function MovieContainer() {
 
     return (
         <MovieContainerWrapper>
+            <h1>{title}</h1>
             {loading ? (
                 <h1>Loading...</h1>
             ) : (
@@ -69,7 +68,8 @@ export default function MovieContainer() {
 }
 
 const MovieContainerWrapper = styled.div`
+    margin-top: 5px;
     overflow: hidden;
-    padding-top: 80px;
+    /* padding-top: 80px; */
     /* transform: translate(-100vw); */
 `;
