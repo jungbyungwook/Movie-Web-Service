@@ -9,4 +9,5 @@ const TitleWrapper = styled.h1`
     display: inline;
     font-size: 35px;
     color: #ffffff;
+    background-color: transparent;
 `;

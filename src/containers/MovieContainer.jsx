@@ -48,7 +48,7 @@ export default function MovieContainer({ title }) {
             {loading ? (
                 <h1>Loading...</h1>
             ) : (
-                <div>
+                <Movies>
                     {movies.map((movie) => (
                         <Movie
                             key={movie.id}
@@ -59,17 +59,53 @@ export default function MovieContainer({ title }) {
                             genres={movie.genres}
                         />
                     ))}
-                </div>
+                </Movies>
             )}
-            <button onClick={leftClick}>left</button>
-            <button onClick={rightClick}>Right</button>
+            <LeftBtn onClick={leftClick}>
+                <img
+                    src={process.env.PUBLIC_URL + "/img/leftArrow.png"}
+                    alt="leftArrow"
+                />
+            </LeftBtn>
+            <RightBtn onClick={rightClick}>
+                <img
+                    src={process.env.PUBLIC_URL + "/img/rightArrow.png"}
+                    alt="rightArrow"
+                />
+            </RightBtn>
         </MovieContainerWrapper>
     );
 }
 
 const MovieContainerWrapper = styled.div`
-    margin-top: 5px;
+    margin-top: 2px;
     overflow: hidden;
+    color: #ffffff;
     /* padding-top: 80px; */
     /* transform: translate(-100vw); */
+
+    button {
+        background-color: transparent;
+        border: none;
+        height: 40px;
+        width: 20px;
+        /* position: absolute; */
+
+        img {
+            background-color: transparent;
+            height: 40px;
+            width: 20px;
+        }
+    }
+`;
+
+const Movies = styled.div``;
+
+const LeftBtn = styled.button`
+    left: 0px;
+    /* bottom: 65px; */
+`;
+const RightBtn = styled.button`
+    right: 0;
+    /* bottom: 65px; */
 `;
