@@ -15,9 +15,11 @@ import {
     CarouselItem,
     LeftCarouselButton,
     RightCarouselButton,
+    RightBtn,
+    LeftBtn,
 } from "./Carousel.style";
 
-const ArrowLeft = ({ size = 30, color = "#000000" }) => (
+const ArrowLeft = ({ size = 30, color = "white" }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -33,7 +35,7 @@ const ArrowLeft = ({ size = 30, color = "#000000" }) => (
     </svg>
 );
 
-const ArrowRight = ({ size = 30, color = "#000000" }) => (
+const ArrowRight = ({ size = 30, color = "white" }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -47,6 +49,7 @@ const ArrowRight = ({ size = 30, color = "#000000" }) => (
     >
         <path d="M5 12h13M12 5l7 7-7 7" />
     </svg>
+    // <img src={process.env.PUBLIC_URL + "/img/rightArrow.png"}></img>
 );
 
 function Carousel({ children }) {
@@ -80,13 +83,13 @@ function Carousel({ children }) {
     );
 }
 
-export default function CarouselContainer() {
+export default function CarouselContainer({ title, genre }) {
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
 
     const getMovies = async () => {
         const response = await axios.get(
-            "https://yts.mx/api/v2/list_movies.json?limit=50&minimum_rating=9?&genre=romance&sort_by=year"
+            `https://yts.mx/api/v2/list_movies.json?limit=50&minimum_rating=9?&genre=${genre}&sort_by=year`
         );
         setMovies(response.data.data.movies);
         setLoading(false);
@@ -97,7 +100,7 @@ export default function CarouselContainer() {
 
     return (
         <Container>
-            <H1>Romance</H1>
+            <H1>{title}</H1>
             <HorizontalCenter>
                 <Carousel>
                     {loading ? (
@@ -105,7 +108,7 @@ export default function CarouselContainer() {
                     ) : (
                         movies.map((movie) => (
                             <Movie
-                                size={15}
+                                size={13}
                                 style={{ borderRadius: "20px", opacity: 0.9 }}
                                 key={movie.id}
                                 id={movie.id}

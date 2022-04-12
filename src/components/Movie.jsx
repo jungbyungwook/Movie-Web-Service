@@ -3,18 +3,18 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 function Movie({ id, img, size, style }) {
-    const onClick = () => {
-        console.log(1);
-    };
+    const onClick = () => {};
 
     return (
-        <MovieWrapper
-            onClick={onClick}
-            id={id}
-            img={img}
-            size={size}
-            style={style}
-        />
+        <Link to={`movie/${id}`}>
+            <MovieWrapper
+                // onClick={onClick}
+                id={id}
+                img={img}
+                size={size}
+                style={style}
+            />
+        </Link>
     );
 }
 
@@ -24,7 +24,7 @@ const MovieWrapper = styled.div`
     text-transform: capitalize;
 
     width: ${({ size }) => `${size}rem`};
-    height: ${({ size }) => `${size + 8}rem`};
+    height: ${({ size }) => `${size + 7}rem`};
     background-image: ${({ img }) => `url(${img})`};
     background-size: cover;
 

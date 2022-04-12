@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const H1 = styled.h1`
     /* text-align: center; */
-
+    font-family: InterBold;
     color: white;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
@@ -111,4 +111,13 @@ export const CarouserContainerInner = styled(Flex)`
     ${CarouselItem} & {
         scroll-snap-align: center;
     }
+`;
+
+export const RightBtn = styled.img`
+    height: 40px;
+    width: 20px;
+`;
+export const LeftBtn = styled.img`
+    height: 40px;
+    width: 20px;
 `;
