@@ -6,7 +6,7 @@ export default function Title() {
 
 const TitleWrapper = styled.h1`
     font-family: InterBold;
-    display: inline;
+    display: block;
     font-size: 35px;
     color: #ffffff;
     background-color: transparent;
