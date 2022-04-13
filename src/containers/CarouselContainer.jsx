@@ -83,7 +83,7 @@ function Carousel({ children }) {
     );
 }
 
-export default function CarouselContainer({ title, genre }) {
+export default function CarouselContainer({ title, genre, buttonRef }) {
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
 
@@ -99,7 +99,7 @@ export default function CarouselContainer({ title, genre }) {
     }, []);
 
     return (
-        <Container>
+        <Container ref={buttonRef}>
             <H1>{title}</H1>
             <HorizontalCenter>
                 <Carousel>

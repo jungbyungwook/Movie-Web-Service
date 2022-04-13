@@ -3,7 +3,7 @@ export const H1 = styled.h1`
     /* text-align: center; */
     font-family: InterBold;
     color: white;
-    padding-top: 0.3rem;
+    /* padding-top: 0.3rem; */
     padding-bottom: 0.3rem;
     padding-left: 3.5rem;
 `;
@@ -28,6 +28,7 @@ export const Container = styled.div`
     height: stretch;
     width: 100%;
     background: transparent;
+    padding-top: 1.2rem;
 `;
 
 export const Item = styled.div`

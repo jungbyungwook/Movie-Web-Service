@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
-export default function Header({ comedyClick }) {
+export default function Header({
+    romanceClick,
+    actionClick,
+    thrillerClick,
+    comedyClick,
+}) {
     return (
         <HeaderWrapper>
             <TitleWrapper>JMovie</TitleWrapper>
+            <button onClick={romanceClick}>Romance</button>
+            <button onClick={actionClick}>Action</button>
+            <button onClick={thrillerClick}>Thriller</button>
             <button onClick={comedyClick}>Comedy</button>
         </HeaderWrapper>
     );
@@ -18,6 +26,7 @@ const TitleWrapper = styled.h1`
 `;
 
 const HeaderWrapper = styled.div`
+    z-index: 1;
     position: fixed;
     display: inline;
     top: 0;

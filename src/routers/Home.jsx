@@ -7,29 +7,57 @@ import CarouselContainer from "../containers/CarouselContainer";
 import styled from "styled-components";
 
 function Home() {
+    const romanceRef = useRef(null);
+    const actionRef = useRef(null);
+    const thrillerRef = useRef(null);
     const comedyRef = useRef(null);
 
-    const scrollToComedy = () => {
-        comedyRef.current.scrollIntoView({ behavior: "smooth" });
+    const scroll = (ref) => {
+        ref.current.scrollIntoView({ behavior: "smooth" });
     };
 
-    const handleComedyClick = async () => {
-        scrollToComedy();
+    const handleRomanceClick = async () => {
+        scroll(romanceRef);
     };
+    const handleActionClick = async () => {
+        scroll(actionRef);
+    };
+    const handleThrillerClick = async () => {
+        scroll(actionRef);
+    };
+    const handleComedyClick = async () => {
+        scroll(comedyRef);
+    };
+
     return (
         <HomeWrapper>
-            <Header comedyClick={handleComedyClick} />
+            <Header
+                romanceClick={handleRomanceClick}
+                actionClick={handleActionClick}
+                comedyClick={handleComedyClick}
+                thrillerClick={handleThrillerClick}
+            />
             <MainMovieContainer />
-            <CarouselContainer genre="romance" title="Romance" />
-            <CarouselContainer genre="action" title="action" />
-            <CarouselContainer genre="thriller" title="thriller" />
-            <div ref={comedyRef}>
-                <CarouselContainer
-                    genre="comedy"
-                    title="comedy"
-                    comedyRef={useRef(null)}
-                />
-            </div>
+            <CarouselContainer
+                genre="romance"
+                title="Romance"
+                buttonRef={romanceRef}
+            />
+            <CarouselContainer
+                genre="action"
+                title="action"
+                buttonRef={actionRef}
+            />
+            <CarouselContainer
+                genre="thriller"
+                title="thriller"
+                buttonRef={thrillerRef}
+            />
+            <CarouselContainer
+                genre="comedy"
+                title="comedy"
+                buttonRef={comedyRef}
+            />
         </HomeWrapper>
     );
 }
