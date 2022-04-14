@@ -49,5 +49,11 @@ const HeaderWrapper = styled.div`
         color: white;
         border: none;
         outline: none;
+
+        transition: all 0.1s linear;
+
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 `;
