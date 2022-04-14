@@ -1,11 +1,9 @@
 import styled from "styled-components";
 export const H1 = styled.h1`
-    /* text-align: center; */
     font-family: InterBold;
     color: white;
-    /* padding-top: 0.3rem; */
-    padding-bottom: 0.3rem;
-    padding-left: 3.5rem;
+    padding-bottom: 0.7rem;
+    text-align: center;
 `;
 
 export const Relative = styled.div`

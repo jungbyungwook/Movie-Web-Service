@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import Movie from "../components/Movie";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import MainMovieContainer from "../containers/MainMovieContainer";
 import CarouselContainer from "../containers/CarouselContainer";
 
@@ -13,7 +14,7 @@ function Home() {
     const comedyRef = useRef(null);
 
     const scroll = (ref) => {
-        ref.current.scrollIntoView({ behavior: "smooth" });
+        ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
     };
 
     const handleRomanceClick = async () => {
@@ -23,7 +24,7 @@ function Home() {
         scroll(actionRef);
     };
     const handleThrillerClick = async () => {
-        scroll(actionRef);
+        scroll(thrillerRef);
     };
     const handleComedyClick = async () => {
         scroll(comedyRef);
@@ -58,10 +59,13 @@ function Home() {
                 title="comedy"
                 buttonRef={comedyRef}
             />
+            <Footer />
         </HomeWrapper>
     );
 }
 
-const HomeWrapper = styled.div``;
+const HomeWrapper = styled.div`
+    /* scroll-margin-top: 100px; */
+`;
 
 export default Home;
